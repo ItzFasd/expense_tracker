@@ -28,7 +28,7 @@ def parse_amount(text: str) -> int:
 def parse_date(text: str) -> str:
     """Превращает 'ДД.ММ.ГГГГ' в 'ГГГГ-ММ-ДД'."""
     try:
-        parsed = datetime.strptime(text.strip(), "%d, %m, %Y")
+        parsed = datetime.strptime(text.strip(), "%d.%m.%Y")
     except ValueError:
         raise ValidationError("Дата должна быть в правильном формате (ДД.ММ.ГГГГ)")from None
     return parsed.date().isoformat()
